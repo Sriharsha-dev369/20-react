@@ -20,7 +20,7 @@ function MovieCard({ movie }) {
         />
         <div className="movie-overplay">
           <button
-            className={`favorite-btn ${favorite}? "active" :""`}
+            className={`favorite-btn ${favorite? "active" :""}`}
             onClick={onFavoriteClicl}
           >
             🤍
