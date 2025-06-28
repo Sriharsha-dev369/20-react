@@ -17,8 +17,10 @@ export const MovieProvider = ({ children }) => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
-  const addToFavorites = (movie) => {
-    setFavorites((prev) => [...prev, movie]);
+  const addToFavorite = (movie) => {
+    setFavorites((prev) =>
+      prev.some((m) => m.id === movie.id) ? prev : [...prev, movie]
+    );
   };
 
   const removeFromFavorite = (movieId) => {
@@ -31,7 +33,7 @@ export const MovieProvider = ({ children }) => {
 
   const value = {
     favorites,
-    addToFavorites,
+    addToFavorite,
     removeFromFavorite,
     isFavorite
   }
